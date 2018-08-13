@@ -1,0 +1,48 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "flowtype"
+  ],
+  "extends": [
+    "@strv/javascript/environments/react/v16.js",
+    "@strv/javascript/environments/react/optional.js",
+    "@strv/javascript/coding-styles/recommended.js",
+    "@strv/javascript/environments/flow/recommended"
+  ],
+  "rules": {
+    "no-inline-comments": "off",
+    "no-warning-comments": "off",
+    "eqeqeq": ["error", "smart"],
+    "semi": "off",
+    "no-unused-vars": "off",
+    "no-underscore-dangle": "off",
+    "react/require-default-props": "off",
+    "operator-linebreak": "off",
+    "react/jsx-uses-vars": 2,
+    "import/exports-last": "off",
+    "import/group-exports": "off",
+    "import/order": "off",
+    "quotes": "off",
+    "func-names": "off",
+    "function-paren-newline": "off",
+    "no-extra-parens": "off",
+    "no-alert": "off",
+    "react/prop-types": "off",
+    "jsx-a11y/click-events-have-key-events": off,
+    "jsx-a11y/no-noninteractive-element-interactions": off,
+    "react/no-unused-prop-types": "off",
+    "react/no-array-index-key": "off",
+    "flowtype/require-parameter-type": "off",
+    "flowtype/require-variable-type": "off",
+    "flowtype/require-return-type": "off",
+    "flowtype/no-weak-types": "off",
+  },
+  "globals": {}
+}
