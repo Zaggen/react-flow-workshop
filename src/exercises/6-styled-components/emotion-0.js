@@ -11,16 +11,8 @@ const Link = makeLink(props => ({
   margin: '0 auto 20px',
   padding: props.primary ? 18 : 16,
   border: props.primary ? 'none' : '3px solid currentColor',
-  background: props.primary && 'linear-gradient(90deg, #D26AC2, #46C9E5)',
-  color: props.primary ? '#1D2029' : '#D26AC2',
   '&:hover': {
     opacity: '0.95',
-  },
-  '@media (min-width: 768px)': {
-    margin: '0 20px 0 0',
-    '&:last-child': {
-      margin: 0,
-    },
   },
 }))
 
