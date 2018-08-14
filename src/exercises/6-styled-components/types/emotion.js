@@ -18,7 +18,5 @@ export type Emotion = {
       ...$Exact<$ElementType<HTMLElements, 'a'>>,
       ...$Exact<P>,
     |}>),
-  li: <P: {||}>(
-    (props: P) => Object,
-  ) => React.ComponentType<{| href: string, ...$Exact<P> |}>,
+  li: <P: {||}>((props: P) => Object) => React.ComponentType<P>,
 }
