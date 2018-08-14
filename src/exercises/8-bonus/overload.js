@@ -1,7 +1,7 @@
 // @flow
 
-type CreateAction = (<T>(action: T) => { type: T }) &
-  (<T, P>(action: T, data: P) => { type: T, payload: P })
+// TODO: Add version without payload and overload (&) second version
+type CreateAction = Function
 
 declare var createAction: CreateAction
 

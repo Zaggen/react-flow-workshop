@@ -2,11 +2,10 @@
 // TODO: Fix types
 import React from 'react'
 import AverageRating from './AverageRating'
-import type { List, Map } from './types'
 
-type Props = Map<{|
-  films: List<{ id: number, name: string, rating: number }>,
-|}>
+type Props = {|
+  films: Array<{ id: number, name: string, rating: number }>,
+|}
 
 const Films = ({ films }: Props) => (
   <div>

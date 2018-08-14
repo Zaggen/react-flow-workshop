@@ -1,12 +1,12 @@
 // @flow
 import * as React from 'react'
-import type { Styled } from './types/styled-components'
 
+// TODO: Type styled
 declare var styled: any
 
-type InputProps = {| isActive: boolean |}
+// TODO: Add Prop types for Input
 
-const Input: Styled<'input', InputProps> = styled.input`
+const Input = styled.input`
   background: ${props => (props.isActive ? 'red' : 'white')};
 `
 

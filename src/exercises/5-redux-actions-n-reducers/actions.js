@@ -1,5 +1,4 @@
 // @flow
-import type { $User, $ExtractActions, List } from './types'
 
 export const FETCH_USERS = 'FETCH_USERS'
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
@@ -11,17 +10,17 @@ const actions = {
     type: FETCH_USERS,
   }),
 
-  fetchUsersSuccess: (users: List<$User>) => ({
+  fetchUsersSuccess: users => ({
     type: FETCH_USERS_SUCCESS,
     payload: { users },
   }),
 
-  addUser: (user: $User) => ({
+  addUser: user => ({
     type: ADD_USER,
     payload: { user },
   }),
 
-  removeUser: (user: $User) => ({
+  removeUser: user => ({
     type: REMOVE_USER,
     payload: { user },
   }),
@@ -29,4 +28,4 @@ const actions = {
 
 export default actions
 
-export type $UserActions = $ExtractActions<typeof actions>
+// export type $UserActions = ???

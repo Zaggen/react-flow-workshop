@@ -1,12 +1,10 @@
 // @flow
 import * as React from 'react'
-import type { Emotion, Styled } from './types/emotion'
 
-declare var styled: Emotion
+// TODO: Type styled
+declare var styled: any
 
-const makeLink: Styled<'a', {| primary: boolean |}> = styled.a
-
-const Link = makeLink(props => ({
+const Link = styled.a(props => ({
   minWidth: '12rem',
   margin: '0 auto 20px',
   padding: props.primary ? 18 : 16,

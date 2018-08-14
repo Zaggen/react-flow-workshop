@@ -1,15 +1,8 @@
 // @flow
-import type { $User, List, Map } from './types'
-import {
-  FETCH_USERS_SUCCESS,
-  ADD_USER,
-  REMOVE_USER,
-  type $UserActions,
-} from './actions'
+// TODO: Add types for state and action
+import { FETCH_USERS_SUCCESS, ADD_USER, REMOVE_USER } from './actions'
 
-export type $State = List<$User>
-
-function usersReducer(state: $State = [], action: $UserActions): $State {
+function usersReducer(state = [], action) {
   switch (action.type) {
     case FETCH_USERS_SUCCESS: {
       return action.payload.users

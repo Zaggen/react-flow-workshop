@@ -1,13 +1,12 @@
 // @flow
 import React from 'react'
-import type { List, Map } from './types'
 
-type Films = List<{
+type Films = Array<{
   id: number,
   rating: number,
 }>
 
-type Props = Map<{| films: Films |}>
+type Props = {| films: Films |}
 
 const AverageRank = ({ films }: Props) => <span>{getAvg(films)}</span>
 
