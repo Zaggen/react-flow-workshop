@@ -10,6 +10,8 @@ const Main = () => (
     title="Dijoint Unions FTW!"
     text="Woah, I see some coodependant props here :/"
     animate
+    width={13}
+    height={43}
   />
 )
 

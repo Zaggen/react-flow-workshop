@@ -3,11 +3,15 @@
 // TODO: Show how to keep props DRY with exact props and spread
 // TODO: Show example with state
 
-type Config = {
-  rootUrl: string,
-  dynamicLink?: boolean,
-  userId?: number,
-}
+type Config =
+  | {|
+      rootUrl: string,
+    |}
+  | {|
+      rootUrl: string,
+      dynamicLink: boolean,
+      userId: number,
+    |}
 
 function createUserLink(config: Config): string {
   if (config.dynamicLink && config.userId) {

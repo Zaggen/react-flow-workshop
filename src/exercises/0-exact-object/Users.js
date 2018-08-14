@@ -4,24 +4,15 @@ import User from './User'
 
 type Birthdate = {| month: number, day: number, year: number |}
 
-type Props = {
+type Props = {|
   users: {
     name: string,
     birtdate: Birthdate,
   }[],
-}
+|}
 
 const Users = ({ users }: Props) => (
-  <ul>
-    {users.map((user, i) => (
-      <User key={i} name={user.name} age={getAge(user.birtdate)} />
-    ))}
-  </ul>
+  <ul>{users.map((user, i) => <User key={i} name={user.name} />)}</ul>
 )
 
 export default Users
-
-function getAge(birtdate: Birthdate): number {
-  // ... smart logic to calculate age
-  return Math.random() * 100
-}
