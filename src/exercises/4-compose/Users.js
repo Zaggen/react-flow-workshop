@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { pure } from 'recompose'
-import User from '../0-exact-object/User'
+import User from './User'
 
 type Props = {|
   users: $ReadOnlyArray<{ name: string, age: number }>,
