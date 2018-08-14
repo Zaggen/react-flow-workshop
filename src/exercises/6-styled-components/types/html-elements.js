@@ -1,6 +1,8 @@
+// @flow
+
 type HTMLElementProps = {
   getInnerRef?: (el: ?HTMLElement) => void,
-  className: string,
+  className?: string,
   dir?: 'ltr' | 'rtl' | 'auto',
   id?: string,
   innerHTML?: string,
@@ -378,7 +380,7 @@ export type HTMLElements = {
   i: HTMLElementProps,
   iframe: HTMLElementProps,
   img: HTMLElementProps,
-  input: HTMLElementProps,
+  input: HTMLInputElementProps,
   ins: HTMLElementProps,
   kbd: HTMLElementProps,
   keygen: HTMLElementProps,
