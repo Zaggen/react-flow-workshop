@@ -4,7 +4,9 @@ import type { Styled } from './types/styled-components'
 
 declare var styled: any
 
-const Input: Styled<'a', {| isActive: boolean |}> = styled.input`
+type InputProps = {| isActive: boolean |}
+
+const Input: Styled<'input', InputProps> = styled.input`
   background: ${props => (props.isActive ? 'red' : 'white')};
 `
 
