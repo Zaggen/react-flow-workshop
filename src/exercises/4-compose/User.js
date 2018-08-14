@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import { compose, pure, withHandlers } from 'recompose'
 
 type Props = {|
@@ -7,12 +7,7 @@ type Props = {|
   age: number,
 |}
 
-type EnhancedProps = {
-  ...$Exact<Props>,
-  sayHi: Function,
-}
-
-const User = (props: EnhancedProps) => (
+const User = props => (
   <li onClick={() => props.sayHi(props.name)}>
     {`${props.name} is ${props.age} old.`}
   </li>
@@ -26,4 +21,4 @@ const enhancer = compose(
   }),
 )
 
-export default enhancer(User)
+export default (enhancer(User): React.ComponentType<Props>)

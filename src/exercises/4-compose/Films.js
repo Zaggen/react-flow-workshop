@@ -1,13 +1,9 @@
 // @flow
 // TODO: Use type inference
-import React from 'react'
+import * as React from 'react'
 import { compose, withProps } from 'recompose'
 
-type Props = {|
-  films: $ReadOnlyArray<{ name: string, age: number }>,
-|}
-
-class Films extends React.PureComponent<Props> {
+class Films<P: *> extends React.PureComponent<P> {
   componentDidMount() {
     // do something
   }
@@ -25,4 +21,4 @@ const enhancer = compose(
   }),
 )
 
-export default enhancer(Films)
+export default (enhancer(Films): React.ComponentType<{}>)

@@ -1,15 +1,10 @@
 // @flow
 // TODO: Use type inference from compose
-import React from 'react'
+import * as React from 'react'
 import { compose, pure, withHandlers, withProps } from 'recompose'
 import Users from './Users'
 
-type EnhancedProps = {
-  alert: Function,
-  users: $ReadOnlyArray<{ name: string, age: number }>,
-}
-
-const Page = (props: EnhancedProps) => (
+const Page = props => (
   <div>
     <p onClick={props.alert}>React App + Flow</p>
     <Users users={props.users} />
@@ -27,4 +22,4 @@ const enhancer = compose(
   }),
 )
 
-export default enhancer(Page)
+export default (enhancer(Page): React.ComponentType<{}>)
