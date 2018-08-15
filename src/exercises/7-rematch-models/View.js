@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import type { State, Dispatch } from './store'
+import type { State, Dispatch } from './allModels.types'
 
 declare var connect: Function
 
