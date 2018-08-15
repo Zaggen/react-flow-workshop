@@ -1,19 +1,19 @@
 // @flow
 
-export type GetState<Models> = $ObjMap<
-  Models,
-  <M>(model: M) => $ElementType<M, 'state'>,
->
+// TODO: Define CountState here
 
-export type GetDispatch<Models> = $ObjMap<
-  Models,
-  <M>(
-    model: M,
-  ) => {
-    ...$ObjMap<$ElementType<M, 'reducers'>, <R>(reducer: R) => $Call<R, any>>,
-    ...$ObjMap<
-      $Call<$ElementType<M, 'effects'>, <I, R>(I) => R>,
-      () => (payload: any) => void,
-    >,
+// TODO: Define CountActions here
+
+// Example
+
+export type UsersState = { name: string }[]
+
+export type UserActions = {
+  pure: {
+    add: { payload: { name: string } },
+    remove: { payload: { id: number } },
   },
->
+  effects: {
+    createAsync: { payload: { name: string } },
+  },
+}
