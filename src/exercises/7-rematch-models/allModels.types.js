@@ -1,18 +1,16 @@
 // @flow
-import type { CountActions, CountState, UserActions, UsersState } from './types'
-import type { GetDispatch, Model } from './helperTypes'
+import type { CountInterface, UserInterface } from './types'
+import type { GetDispatch, GetState, GetModels } from './helperTypes'
 
-export type Dispatch = GetDispatch<{ count: CountActions, user: UserActions }>
-
-export type State = {
-  count: CountState,
-  user: UsersState,
+type Interfaces = {
+  count: CountInterface,
+  user: UserInterface,
 }
 
-export type CountModel = Model<CountState, CountActions, Dispatch, State>
-export type UserModel = Model<UsersState, UserActions, Dispatch, State>
+export type Dispatch = GetDispatch<Interfaces>
 
-export type Models = {
-  count: CountModel,
-  user: UserModel,
-}
+export type State = GetState<Interfaces>
+
+export type Models = GetModels<Interfaces, Dispatch, State>
+
+export type Model<N> = $ElementType<Models, N>
