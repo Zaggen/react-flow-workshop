@@ -1,39 +1,55 @@
 // @flow
-export type GetDispatch<Actions> = $ObjMap<
-  Actions,
+type GetActions<Interfaces> = $ObjMap<
+  Interfaces,
+  <I: { state: any, actions: Object }>(I) => $PropertyType<I, 'actions'>,
+>
+
+type GetStates<Interfaces> = $ObjMap<
+  Interfaces,
+  <I: { state: any, actions: Object }>(I) => $PropertyType<I, 'state'>,
+>
+
+type Return<T> = () => T
+type Fn<A> = A => void
+
+export type GetDispatch<Interfaces> = $ObjMap<
+  GetActions<Interfaces>,
   <A: { pure: Object, effects: Object }>(
     action: A,
   ) => {|
     ...$Exact<
-      $ObjMap<
-        $ElementType<A, 'pure'>,
-        <V>(val: V) => ($ElementType<V, 'payload'>) => void,
-      >,
+      $ObjMap<$PropertyType<A, 'pure'>, <V>(V) => Fn<$Call<Return<V>>>>,
     >,
     ...$Exact<
-      $ObjMap<
-        $ElementType<A, 'effects'>,
-        <V>(val: V) => ($ElementType<V, 'payload'>) => void,
-      >,
+      $ObjMap<$PropertyType<A, 'effects'>, <V>(V) => Fn<$Call<Return<V>>>>,
     >,
   |},
 >
 
-export type Model<S, A, D, RootState> = {
+export type GetState<Interfaces> = $ObjMap<GetStates<Interfaces>, <S>(S) => S>
+
+type Model<S, A, D, RootState> = {
   state: S,
   reducers: $ObjMap<
     $ElementType<A, 'pure'>,
-    <V>(val: V) => (state: S, payload: $ElementType<V, 'payload'>) => S,
+    <V>(val: V) => (state: S, payload: V) => S,
   >,
   effects: (
     dispatch: D,
   ) => $ObjMap<
     $ElementType<A, 'effects'>,
-    <V>(
-      val: V,
-    ) => (
-      payload: $ElementType<V, 'payload'>,
-      rootState: RootState,
-    ) => Promise<void>,
+    <V>(val: V) => (payload: V, rootState: RootState) => Promise<void>,
   >,
 }
+
+export type GetModels<Interfaces, Dispatch, RootState> = $ObjMap<
+  Interfaces,
+  <I: { state: any, actions: Object }>(
+    I,
+  ) => Model<
+    $PropertyType<I, 'state'>,
+    $PropertyType<I, 'actions'>,
+    Dispatch,
+    RootState,
+  >,
+>
