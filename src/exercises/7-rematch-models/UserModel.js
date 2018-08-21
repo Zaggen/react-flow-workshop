@@ -1,7 +1,7 @@
 // @flow
 import type { Model } from './allModels.types'
 
-export const user: Model<'user'> = {
+const user: Model<'user'> = {
   state: [{ name: 'Lu' }], // initial state
   reducers: {
     add(state, payload) {
