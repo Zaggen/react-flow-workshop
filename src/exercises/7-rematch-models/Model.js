@@ -1,7 +1,7 @@
 // @flow
 import type { Model } from './allModels.types'
 
-export const count: Model<'count'> = {
+const count: Model<'count'> = {
   state: 0, // initial state
   reducers: {
     // handle state changes with pure functions
@@ -16,7 +16,7 @@ export const count: Model<'count'> = {
     // handle state changes with impure functions.
     // use async/await for async actions
     async incrementAsync(payload, rootState) {
-      const user = rootState.user[0]
+      const user = rootState.user
       await new Promise(resolve => setTimeout(resolve, 1000))
       dispatch.count.increment(payload)
       dispatch.user.createAsync({ name: user.name })
