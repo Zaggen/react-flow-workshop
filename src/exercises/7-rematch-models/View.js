@@ -1,8 +1,9 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import type { State, Dispatch } from './allModels.types'
+import type { Connect } from './connect.type'
 
-declare var connect: Function
+declare var connect: Connect
 
 const Count = props => (
   <div>
@@ -12,11 +13,11 @@ const Count = props => (
   </div>
 )
 
-const mapState = (state: State) => ({
+const mapState = state => ({
   count: state.count,
 })
 
-const mapDispatch = ({ count }: Dispatch) => ({
+const mapDispatch = ({ count }) => ({
   increment: () => count.increment(1),
   incrementAsync: () => count.incrementAsync(1),
 })
