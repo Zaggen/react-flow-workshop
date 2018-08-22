@@ -16,7 +16,7 @@ const count: Model<'count'> = {
     // handle state changes with impure functions.
     // use async/await for async actions
     async incrementAsync(payload, rootState) {
-      const user = rootState.user
+      const user = rootState.user[0]
       await new Promise(resolve => setTimeout(resolve, 1000))
       dispatch.count.increment(payload)
       dispatch.user.createAsync({ name: user.name })
