@@ -14,7 +14,7 @@ export type CountInterface = {
 }
 
 export type UserInterface = {
-  state: { +name: string },
+  state: {| +name: string |}[],
   actions: {
     pure: {
       add: { name: string },
