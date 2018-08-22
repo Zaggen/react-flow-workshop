@@ -1,13 +1,13 @@
 // @flow
-import type { GetDispatch, Model } from './helperTypes'
-// TODO: Import types
+import type { GetDispatch, GetState, GetModels } from './helperTypes'
+// TODO: Import interfaces
 
-export type Dispatch = GetDispatch<{}>
+type Interfaces = {}
 
-// TODO: Add all model's state
-export type State = {}
+export type Dispatch = GetDispatch<Interfaces>
 
-// export type CountModel = Model<CountState, CountActions, Dispatch, State>
+// export type State = GetState<Interfaces>
 
-// TODO: All add Models here
-export type Models = {}
+// export type Models = GetModels<Interfaces, Dispatch, State>
+
+// export type Model<N> = $ElementType<Models, N>
