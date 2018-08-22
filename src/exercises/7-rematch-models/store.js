@@ -1,4 +1,4 @@
 // @flow
-import count from './Model'
+import count from './CountModel'
 
 const models = { count }
