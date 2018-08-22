@@ -37,10 +37,10 @@ export type GetState<Interfaces> = $ReadOnly<
 >
 
 type Model<S, A, D, RootState> = {
-  +state: S,
+  +state: $Call<Return<S>>,
   +reducers: $ObjMap<
     $ElementType<A, 'pure'>,
-    <V>(val: V) => (state: S, payload: V) => S,
+    <V>(val: V) => (state: S, payload: V) => $Call<Return<S>>,
   >,
   +effects: (
     dispatch: $ReadOnly<D>,
